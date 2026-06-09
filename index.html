@@ -169,6 +169,7 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
 
     <div id="tabs" style="display:none;flex-direction:row">
       <button class="tab on" data-m="ps">P / Sales</button>
+      <button class="tab" data-m="evs">EV / Sales</button>
       <button class="tab" data-m="pe">P / E</button>
       <button class="tab" data-m="ev">EV / EBITDA</button>
       <button class="tab" data-m="pfcf">P / FCF</button>
@@ -301,6 +302,7 @@ const cache={};
 // Finnhub basic financials series keys mapped to our metric IDs
 const METRIC_MAP={
   ps:  { key:'psTTM',        label:'P / Sales'   },
+  evs: { key:'evSalesTTM',   label:'EV / Sales'  },
   pe:  { key:'peTTM',        label:'P / E'        },
   ev:  { key:'evEbitdaTTM',  label:'EV / EBITDA' },
   pfcf:{ key:'pfcfTTM',      label:'P / FCF'      },
@@ -383,8 +385,19 @@ async function buildHistory(tkr){
     }
   }
 
+  // EV/Sales: similar pattern using 'evSalesTTM'
+  let evsSeries = extractSeries('evSalesTTM', 'evSalesTTM', 500);
+  if(evsSeries.length === 0){
+    const cur = metrics.metric || {};
+    const evsVal = cur.evSalesTTM || cur['evSalesTTM'];
+    if(evsVal && evsVal > 0 && evsVal < 500){
+      evsSeries = [{ date: new Date().toISOString().slice(0,10), value: +evsVal.toFixed(2) }];
+    }
+  }
+
   const result={
     ps:   extractSeries('psTTM',   'psTTM'),
+    evs:  evsSeries,
     pe:   extractSeries('peTTM',   'peTTM'),
     ev:   evSeries,
     pfcf: extractSeries('pfcfTTM', 'pfcfTTM', 1000),
@@ -396,7 +409,7 @@ async function buildHistory(tkr){
   };
 
   // Validate we got at least one metric with real history
-  const total = result.ps.length + result.pe.length + result.ev.length + result.pfcf.length;
+  const total = result.ps.length + result.pe.length + result.ev.length + result.pfcf.length + result.evs.length;
   if(total === 0) throw new Error(
     `No historical valuation data returned for "${tkr}". `+
     `This ticker may not be covered on Finnhub's free tier, or the series keys have changed. `+
