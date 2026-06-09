@@ -17,7 +17,7 @@
 }
 html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.5;min-height:100vh}
 
-/* ── Gate ── */
+/* Gate */
 #gate{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity .3s}
 #gate.out{opacity:0;pointer-events:none}
 .g-brand{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-bottom:48px}
@@ -31,11 +31,11 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
 #pw-err{font-family:var(--mono);font-size:10px;color:var(--neg);min-height:14px;letter-spacing:.06em}
 @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 
-/* ── App ── */
+/* App */
 #app{display:none;flex-direction:column;min-height:100vh}
 #app.on{display:flex}
 
-/* ── Topbar ── */
+/* Topbar */
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-bottom:1px solid var(--border)}
 .tb-l{display:flex;align-items:center;gap:16px}
 .tb-brand{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
@@ -44,10 +44,10 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
 .gear-btn{background:none;border:1px solid var(--border);color:var(--muted);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;font-size:15px}
 .gear-btn:hover{border-color:var(--border2);color:var(--text)}
 
-/* ── Main ── */
+/* Main */
 .main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:32px 32px 80px}
 
-/* ── Input ── */
+/* Input */
 .input-row{display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap}
 .t-lbl{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
 #t-in{background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:18px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;width:120px;padding:8px 12px;outline:none;transition:border-color .15s}
@@ -60,26 +60,25 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
 #msg.err{color:var(--neg)}
 #msg.load{color:var(--accent)}
 
-/* ── Company ── */
+/* Company */
 #co{display:none;margin-bottom:24px}
 .co-name{font-size:22px;font-weight:600;letter-spacing:-.01em}
 .co-meta{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.06em}
 
-/* ── Tabs ── */
+/* Tabs */
 #tabs{display:none;margin-bottom:28px;border-bottom:1px solid var(--border)}
 .tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 20px;cursor:pointer;margin-bottom:-1px;transition:color .15s,border-color .15s}
 .tab:hover{color:var(--text)}
 .tab.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:500}
 
-/* ── Stats ── */
+/* Stats */
 #stats{display:none;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);margin-bottom:28px}
 .stat{background:var(--surface);padding:16px 20px}
 .stat-l{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
 .stat-v{font-family:var(--mono);font-size:20px;font-weight:500;line-height:1;color:var(--text)}
-.ca{color:var(--accent)}
-.cm{color:var(--mean)}
+.ca{color:var(--accent)}.cm{color:var(--mean)}
 
-/* ── Gauge ── */
+/* Gauge */
 #gauge{display:none;margin-bottom:32px}
 .g-lbls{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;margin-bottom:6px}
 .g-track{height:6px;background:var(--surface);border:1px solid var(--border);position:relative;overflow:visible}
@@ -88,24 +87,24 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
 .g-note{font-family:var(--mono);font-size:11px;color:var(--text);margin-top:8px;letter-spacing:.06em}
 .g-note em{color:var(--accent);font-style:normal;font-weight:500}
 
-/* ── Chart ── */
+/* Chart */
 #chart-wrap{display:none;position:relative;height:380px;margin-bottom:16px}
 
-/* ── Range pills ── */
+/* Range pills */
 #rpills{display:none;gap:8px;margin-bottom:32px}
 .rp{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;cursor:pointer;transition:all .15s}
 .rp:hover{border-color:var(--accent);color:var(--text)}
 .rp.on{border-color:var(--accent);color:var(--accent);background:rgba(74,127,165,.08)}
 
-/* ── Empty ── */
+/* Empty */
 #empty{text-align:center;padding:80px 0;border:1px solid var(--border)}
 .e-glyph{font-family:var(--mono);font-size:48px;color:var(--border);letter-spacing:.1em;display:block;margin-bottom:16px}
 .e-txt{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.08em}
 
-/* ── Footnote ── */
+/* Footnote */
 #foot{display:none;font-family:var(--mono);font-size:10px;color:var(--muted2);line-height:1.8;letter-spacing:.04em}
 
-/* ── Settings ── */
+/* Settings */
 #settings{display:none;position:fixed;top:0;right:0;width:380px;height:100vh;background:var(--surface);border-left:1px solid var(--border);z-index:8000;flex-direction:column;overflow-y:auto}
 #settings.on{display:flex}
 .s-hdr{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);flex-shrink:0}
@@ -150,7 +149,7 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
     <div class="tb-l">
       <span class="tb-brand">Valuation Dashboard</span>
       <div class="tb-sep"></div>
-      <span class="tb-sub">Historical Valuation Multiples</span>
+      <span class="tb-sub">Historical Valuation Multiples &middot; Finnhub</span>
     </div>
     <button class="gear-btn" id="gear" aria-label="Settings">&#9881;</button>
   </div>
@@ -169,9 +168,9 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
     </div>
 
     <div id="tabs" style="display:none;flex-direction:row">
-      <button class="tab on" data-m="evs">EV / Sales</button>
-      <button class="tab" data-m="eve">EV / EBITDA</button>
+      <button class="tab on" data-m="ps">P / Sales</button>
       <button class="tab" data-m="pe">P / E</button>
+      <button class="tab" data-m="ev">EV / EBITDA</button>
       <button class="tab" data-m="pfcf">P / FCF</button>
     </div>
 
@@ -197,17 +196,18 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
     <div id="rpills" style="display:none;flex-direction:row">
       <button class="rp" data-y="3">3Y</button>
       <button class="rp" data-y="5">5Y</button>
-      <button class="rp on" data-y="10">Max</button>
+      <button class="rp" data-y="10">10Y</button>
+      <button class="rp on" data-y="99">Max</button>
     </div>
 
     <div id="empty">
       <span class="e-glyph">_ _ _ _</span>
-      <div class="e-txt">Enter a ticker above &mdash; add your Alpha Vantage key in &#9881; Settings first</div>
+      <div class="e-txt">Enter a ticker above &mdash; add your Finnhub key in &#9881; Settings first</div>
     </div>
 
     <div id="foot">
-      * Annual multiples computed from Alpha Vantage income statement, balance sheet &amp; cash flow data (free tier).<br>
-      * EV = Market Cap + Total Debt &minus; Cash. &nbsp;P/E = Year-end price &divide; diluted EPS. &nbsp;P/FCF = Mkt Cap &divide; (OpCF &minus; CapEx).<br>
+      * Historical valuation series from Finnhub basic financials endpoint (free tier, 60 calls/min).<br>
+      * P/Sales = market cap &divide; revenue. &nbsp;P/E = price &divide; TTM EPS. &nbsp;EV/EBITDA = enterprise value &divide; EBITDA. &nbsp;P/FCF = price &divide; free cash flow per share.<br>
       * Forward multiples (FY+1/FY+2) require paid consensus data and are not shown.
     </div>
   </div>
@@ -224,12 +224,11 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
     <div class="s-sec">
       <div class="s-sec-ttl">API Key</div>
       <div class="field">
-        <label>Alpha Vantage API Key</label>
-        <input type="text" id="s-key" placeholder="Paste your free key here" autocomplete="off" spellcheck="false">
+        <label>Finnhub API Key</label>
+        <input type="text" id="s-key" placeholder="Paste your free Finnhub key" autocomplete="off" spellcheck="false">
         <div class="fnote">
-          Free forever &mdash; no credit card needed.<br>
-          <a href="https://www.alphavantage.co/support/#api-key" target="_blank" rel="noopener">Get your free key in 30 seconds &rarr;</a><br><br>
-          Free tier: 25 calls/day, 500/month. Loading one ticker uses 4 calls.
+          Free forever &mdash; 60 calls/minute, no credit card.<br>
+          <a href="https://finnhub.io/register" target="_blank" rel="noopener">Get your free key &rarr;</a>
         </div>
       </div>
       <button class="s-btn" id="save-key">Save Key</button>
@@ -257,7 +256,7 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
 
     <div class="s-sec">
       <div class="s-sec-ttl">Session Cache</div>
-      <div class="fnote" style="margin-bottom:8px">Clears all ticker data fetched this session.</div>
+      <div class="fnote" style="margin-bottom:8px">Clears all ticker data cached this session.</div>
       <button class="d-btn" id="clear-cache">Clear Cache</button>
       <div class="s-fb" id="cache-fb"></div>
     </div>
@@ -266,427 +265,330 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-si
 </div>
 
 <script>
-// ─── Crypto helpers ────────────────────────────────────────────────────────
-async function sha256(s) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+// ─── Crypto ───────────────────────────────────────────────────────────────
+async function sha256(s){
+  const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');
 }
-const DEFAULT_HASH = 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f';
-const getHash = () => localStorage.getItem('vd_pw')  || DEFAULT_HASH;
-const getKey  = () => localStorage.getItem('vd_av_key') || '';
+const DEFAULT_HASH='ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f';
+const getHash=()=>localStorage.getItem('vd_pw')||DEFAULT_HASH;
+const getKey =()=>localStorage.getItem('vd_fh_key')||'';
 
-// ─── Gate ──────────────────────────────────────────────────────────────────
-async function tryUnlock() {
-  const h = await sha256(document.getElementById('pw-in').value);
-  if (h === getHash()) {
-    const g = document.getElementById('gate');
+// ─── Gate ─────────────────────────────────────────────────────────────────
+async function tryUnlock(){
+  const h=await sha256(document.getElementById('pw-in').value);
+  if(h===getHash()){
+    const g=document.getElementById('gate');
     g.classList.add('out');
-    setTimeout(() => g.style.display = 'none', 320);
+    setTimeout(()=>g.style.display='none',320);
     document.getElementById('app').classList.add('on');
     document.getElementById('t-in').focus();
   } else {
-    document.getElementById('pw-err').textContent = 'Incorrect password.';
-    const inp = document.getElementById('pw-in');
-    inp.classList.add('shake'); inp.value = '';
-    setTimeout(() => { inp.classList.remove('shake'); document.getElementById('pw-err').textContent = ''; }, 1400);
+    document.getElementById('pw-err').textContent='Incorrect password.';
+    const i=document.getElementById('pw-in');
+    i.classList.add('shake');i.value='';
+    setTimeout(()=>{i.classList.remove('shake');document.getElementById('pw-err').textContent='';},1400);
   }
 }
-document.getElementById('pw-btn').addEventListener('click', tryUnlock);
-document.getElementById('pw-in').addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
-window.addEventListener('DOMContentLoaded', () => document.getElementById('pw-in').focus());
+document.getElementById('pw-btn').addEventListener('click',tryUnlock);
+document.getElementById('pw-in').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock();});
+window.addEventListener('DOMContentLoaded',()=>document.getElementById('pw-in').focus());
 
-// ─── State ─────────────────────────────────────────────────────────────────
-let ticker = null, metric = 'evs', years = 10, chartInst = null;
-const cache = {};
-const MLABELS = { evs:'EV / Sales', eve:'EV / EBITDA', pe:'P / E', pfcf:'P / FCF' };
+// ─── State ────────────────────────────────────────────────────────────────
+let ticker=null,metric='ps',years=99,chartInst=null;
+const cache={};
 
-// ─── Helpers ───────────────────────────────────────────────────────────────
-function setMsg(t, c='') { const el=document.getElementById('msg'); el.textContent=t; el.className=c; }
+// Finnhub basic financials series keys mapped to our metric IDs
+const METRIC_MAP={
+  ps:  { key:'psTTM',        label:'P / Sales'   },
+  pe:  { key:'peTTM',        label:'P / E'        },
+  ev:  { key:'evEbitdaTTM',  label:'EV / EBITDA' },
+  pfcf:{ key:'pfcfShareTTM', label:'P / FCF'      },
+};
 
-function showEls(ids) {
-  ids.forEach(id => {
-    const el = document.getElementById(id); if(!el) return;
-    if (id==='tabs'||id==='rpills') el.style.display='flex';
-    else if (id==='stats') el.style.display='grid';
+// ─── Helpers ──────────────────────────────────────────────────────────────
+function setMsg(t,c=''){const el=document.getElementById('msg');el.textContent=t;el.className=c;}
+
+function showEls(ids){
+  ids.forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    if(id==='tabs'||id==='rpills')el.style.display='flex';
+    else if(id==='stats')el.style.display='grid';
     else el.style.display='block';
   });
 }
-function hideEls(ids) { ids.forEach(id => { const el=document.getElementById(id); if(el) el.style.display='none'; }); }
+function hideEls(ids){ids.forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none';});}
 
-function feedback(id, msg, ok) {
-  const el = document.getElementById(id);
-  el.textContent = msg; el.style.color = ok ? 'var(--pos)' : 'var(--neg)';
-  setTimeout(() => el.textContent = '', 3500);
+function feedback(id,msg,ok){
+  const el=document.getElementById(id);
+  el.textContent=msg;el.style.color=ok?'var(--pos)':'var(--neg)';
+  setTimeout(()=>el.textContent='',3500);
 }
 
-function n(v) { const x = parseFloat(v); return isNaN(x) ? null : x; }
+// ─── Finnhub API ──────────────────────────────────────────────────────────
+const FH='https://finnhub.io/api/v1';
 
-// ─── Alpha Vantage API ─────────────────────────────────────────────────────
-const AV = 'https://www.alphavantage.co/query';
-
-async function av(params) {
-  const key = getKey();
-  if (!key) throw new Error('No API key — open ⚙ Settings and paste your free Alpha Vantage key.');
-  const url = AV + '?' + new URLSearchParams({ ...params, apikey: key });
-  const r = await fetch(url);
-  if (!r.ok) throw new Error(`Alpha Vantage responded with error ${r.status}.`);
-  const data = await r.json();
-  if (data['Error Message']) throw new Error('Invalid ticker symbol or API error: ' + data['Error Message']);
-  if (data['Note'])          throw new Error('Rate limit reached — free tier allows 25 calls/day. Try again tomorrow.');
-  if (data['Information'])   throw new Error('Rate limit reached — free tier allows 25 calls/day. Try again tomorrow.');
-  return data;
+async function fh(path){
+  const key=getKey();
+  if(!key) throw new Error('No API key — open ⚙ Settings and paste your free Finnhub key.');
+  const sep=path.includes('?')?'&':'?';
+  const r=await fetch(`${FH}/${path}${sep}token=${key}`);
+  if(!r.ok){
+    if(r.status===401||r.status===403) throw new Error('API key invalid. Double-check your key in ⚙ Settings.');
+    if(r.status===429) throw new Error('Rate limit hit. Wait a moment and try again.');
+    throw new Error(`Finnhub error ${r.status}`);
+  }
+  const d=await r.json();
+  if(d&&d.error) throw new Error(d.error);
+  return d;
 }
 
-// ─── Build history ─────────────────────────────────────────────────────────
-async function buildHistory(tkr) {
-  setMsg('Fetching financials… (4 API calls)', 'load');
+// ─── Build history ────────────────────────────────────────────────────────
+async function buildHistory(tkr){
+  setMsg('Fetching data…','load');
 
-  // Fire all 4 free-tier endpoints in parallel
-  const [incData, balData, cfData, ovData] = await Promise.all([
-    av({ function: 'INCOME_STATEMENT',  symbol: tkr }),
-    av({ function: 'BALANCE_SHEET',     symbol: tkr }),
-    av({ function: 'CASH_FLOW',         symbol: tkr }),
-    av({ function: 'OVERVIEW',          symbol: tkr }),
+  const [metrics, profile] = await Promise.all([
+    fh(`stock/metric?symbol=${tkr}&metric=all`),
+    fh(`stock/profile2?symbol=${tkr}`),
   ]);
 
-  const annualInc = incData.annualReports || [];
-  const annualBal = balData.annualReports || [];
-  const annualCF  = cfData.annualReports  || [];
+  // The 'series' object contains annual and quarterly historical series
+  const series = metrics.series || {};
+  const annual  = series.annual  || {};
 
-  if (!annualInc.length) throw new Error(`No annual financial data found for "${tkr}". Check the ticker.`);
+  if(!profile||!profile.name) throw new Error(`Ticker "${tkr}" not found. Check the symbol.`);
 
-  // Index balance sheet and cash flow by fiscal date
-  const balIdx = {}, cfIdx = {};
-  annualBal.forEach(r => { balIdx[r.fiscalDateEnding] = r; });
-  annualCF.forEach(r  => { cfIdx[r.fiscalDateEnding]  = r; });
-
-  // Company info from overview
-  const companyName = ovData.Name     || tkr;
-  const sector      = ovData.Sector   || '';
-  const exchange    = ovData.Exchange || '';
-  const sharesOS    = n(ovData.SharesOutstanding);
-
-  const pts = { evs:[], eve:[], pe:[], pfcf:[] };
-
-  annualInc.forEach(inc => {
-    const date = inc.fiscalDateEnding;
-    const bal  = balIdx[date] || {};
-    const cf   = cfIdx[date]  || {};
-
-    // --- Income statement fields ---
-    const revenue    = n(inc.totalRevenue);
-    const ebitda     = n(inc.ebitda);
-    const netInc     = n(inc.netIncome);
-    const dilutedEPS = n(inc.dilutedEPS);
-    const da         = n(inc.depreciationAndAmortization);
-    const opInc      = n(inc.operatingIncome);
-
-    // --- Balance sheet fields ---
-    const totalDebt  = n(bal.shortLongTermDebtTotal) || n(bal.longTermDebt) || 0;
-    const cashEq     = n(bal.cashAndCashEquivalentsAtCarryingValue) || n(bal.cashAndShortTermInvestments) || 0;
-    const shares     = n(bal.commonStockSharesOutstanding) || sharesOS;
-
-    // --- Cash flow fields ---
-    const opCF  = n(cf.operatingCashflow);
-    const capex = n(cf.capitalExpenditures);
-
-    // Need a year-end price to compute market cap
-    // Use EPS + P/E proxy, or fall back to shares * a placeholder
-    // Best approach: use dilutedEPS and build P/E from it directly;
-    // for EV multiples use the AV overview's current market cap adjusted by time
-    // Since AV free tier doesn't give historical prices per annual report,
-    // we'll use the reported EPS * P/E ratio from the overview as a cross-check
-    // and compute P/E directly from dilutedEPS which IS in the annual reports.
-
-    // For EV-based multiples we need a historical market cap estimate.
-    // AV free tier provides MarketCapitalization in OVERVIEW (current only).
-    // Best available proxy: use shares outstanding * a price inferred from EPS trends.
-    // However, for the P/E series, dilutedEPS is available annually — we just need price.
-    // We'll fetch TIME_SERIES_MONTHLY_ADJUSTED and pick the year-end close.
-    // That's a 5th call — we do it below after initial data is loaded.
-
-    if (!shares || shares <= 0) return;
-
-    // Store what we can compute without price first
-    pts._annualData = pts._annualData || [];
-    pts._annualData.push({
-      date, revenue, ebitda, netInc, dilutedEPS, da, opInc,
-      totalDebt, cashEq, shares, opCF, capex
-    });
-  });
-
-  return { pts, companyName, sector, exchange, tkr };
-}
-
-// ─── Fetch price series and compute multiples ──────────────────────────────
-async function buildWithPrices(tkr) {
-  const { pts, companyName, sector, exchange } = await buildHistory(tkr);
-  const annualData = pts._annualData || [];
-  if (!annualData.length) throw new Error(`No data for "${tkr}".`);
-
-  setMsg('Fetching price history…', 'load');
-
-  // Monthly adjusted prices — gives us year-end closes going back 20+ years
-  const priceData = await av({ function: 'TIME_SERIES_MONTHLY_ADJUSTED', symbol: tkr });
-  const monthly   = priceData['Monthly Adjusted Time Series'] || {};
-
-  function yearEndPrice(fiscalDate) {
-    // Find the closest monthly close on or just before fiscalDate
-    const target = new Date(fiscalDate);
-    let best = null, bestDiff = Infinity;
-    for (const [d, v] of Object.entries(monthly)) {
-      const dt   = new Date(d);
-      const diff = Math.abs(target - dt);
-      if (diff < bestDiff) { bestDiff = diff; best = parseFloat(v['5. adjusted close']); }
-    }
-    return best;
+  // Helper: extract a named series into [{date, value}] sorted ascending
+  function extractSeries(key){
+    const raw=annual[key]||[];
+    return raw
+      .filter(pt=>pt.v!=null&&pt.v>0&&pt.v<2000)
+      .map(pt=>({date:pt.period,value:+pt.v.toFixed(2)}))
+      .sort((a,b)=>a.date.localeCompare(b.date));
   }
 
-  const result = { evs:[], eve:[], pe:[], pfcf:[] };
+  const result={
+    ps:   extractSeries('psTTM'),
+    pe:   extractSeries('peTTM'),
+    ev:   extractSeries('evEbitdaTTM'),
+    pfcf: extractSeries('pfcfShareTTM'),
+    _name:    profile.name    ||tkr,
+    _sector:  profile.finnhubIndustry||'',
+    _exchange:profile.exchange||'',
+    _currency:profile.currency||'USD',
+  };
 
-  annualData.forEach(row => {
-    const { date, revenue, ebitda, netInc, dilutedEPS, da, opInc,
-            totalDebt, cashEq, shares, opCF, capex } = row;
+  // Validate we got at least one metric
+  const total=result.ps.length+result.pe.length+result.ev.length+result.pfcf.length;
+  if(total===0) throw new Error(`No historical valuation data found for "${tkr}".`);
 
-    const price = yearEndPrice(date);
-    if (!price || price <= 0) return;
-
-    const mktCap  = price * shares;
-    const ev      = mktCap + (totalDebt || 0) - (cashEq || 0);
-
-    // EBITDA fallback: opInc + D&A
-    const ebitdaVal = ebitda || ((opInc || 0) + (da || 0)) || null;
-    const fcf       = (opCF != null && capex != null) ? opCF - Math.abs(capex) : null;
-
-    function ratio(num, den, cap=500) {
-      if (num!=null && den!=null && den>0 && num>0) {
-        const r = num/den;
-        if (r>0 && r<cap) return +r.toFixed(2);
-      }
-      return null;
-    }
-
-    const v_evs  = ratio(ev, revenue);
-    const v_eve  = ratio(ev, ebitdaVal);
-    const v_pe   = (dilutedEPS!=null && dilutedEPS>0 && price/dilutedEPS<900)
-                   ? +(price/dilutedEPS).toFixed(2) : null;
-    const v_pfcf = (fcf!=null && fcf>0) ? ratio(mktCap, fcf, 1000) : null;
-
-    if (v_evs)  result.evs.push( {date, value:v_evs });
-    if (v_eve)  result.eve.push( {date, value:v_eve });
-    if (v_pe)   result.pe.push(  {date, value:v_pe  });
-    if (v_pfcf) result.pfcf.push({date, value:v_pfcf});
-  });
-
-  // Sort oldest → newest
-  Object.values(result).forEach(a => a.sort((x,y) => x.date.localeCompare(y.date)));
-
-  result._name     = companyName;
-  result._sector   = sector;
-  result._exchange = exchange;
   return result;
 }
 
-// ─── Load ticker ───────────────────────────────────────────────────────────
-async function loadTicker() {
-  const tkr = document.getElementById('t-in').value.trim().toUpperCase();
-  if (!tkr) return;
-  if (cache[tkr]) { ticker=tkr; render(); return; }
+// ─── Load ticker ──────────────────────────────────────────────────────────
+async function loadTicker(){
+  const tkr=document.getElementById('t-in').value.trim().toUpperCase();
+  if(!tkr)return;
+  if(cache[tkr]){ticker=tkr;render();return;}
 
-  document.getElementById('load-btn').disabled = true;
-  setMsg('', '');
+  document.getElementById('load-btn').disabled=true;
+  setMsg('','');
 
-  try {
-    cache[tkr] = await buildWithPrices(tkr);
-    ticker = tkr;
-    setMsg('', '');
+  try{
+    cache[tkr]=await buildHistory(tkr);
+    ticker=tkr;
+    setMsg('','');
     render();
-  } catch(e) {
-    setMsg(e.message, 'err');
+  }catch(e){
+    setMsg(e.message,'err');
   }
-  document.getElementById('load-btn').disabled = false;
+  document.getElementById('load-btn').disabled=false;
 }
 
-document.getElementById('load-btn').addEventListener('click', loadTicker);
-document.getElementById('t-in').addEventListener('keydown', e => { if (e.key==='Enter') loadTicker(); });
+document.getElementById('load-btn').addEventListener('click',loadTicker);
+document.getElementById('t-in').addEventListener('keydown',e=>{if(e.key==='Enter')loadTicker();});
 
-// ─── Render ────────────────────────────────────────────────────────────────
-function filtered() {
-  if (!ticker || !cache[ticker]) return [];
-  const all = (cache[ticker][metric] || []);
-  if (years >= 10) return all;
-  const cutoff = new Date();
-  cutoff.setFullYear(cutoff.getFullYear() - years);
-  return all.filter(d => new Date(d.date) >= cutoff);
+// ─── Render ───────────────────────────────────────────────────────────────
+function filtered(){
+  if(!ticker||!cache[ticker])return[];
+  const all=cache[ticker][metric]||[];
+  if(years>=99)return all;
+  const cutoff=new Date();
+  cutoff.setFullYear(cutoff.getFullYear()-years);
+  return all.filter(d=>new Date(d.date)>=cutoff);
 }
 
-function render() {
-  if (!ticker || !cache[ticker]) return;
-  const d = cache[ticker];
+function render(){
+  if(!ticker||!cache[ticker])return;
+  const d=cache[ticker];
+  const lbl=METRIC_MAP[metric].label;
 
-  document.getElementById('co').style.display = 'block';
-  document.getElementById('co-name').textContent = d._name;
-  document.getElementById('co-meta').textContent =
-    [ticker, d._sector, d._exchange].filter(Boolean).join(' · ') +
-    '  ·  Alpha Vantage  ·  ' +
-    new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+  document.getElementById('co').style.display='block';
+  document.getElementById('co-name').textContent=d._name;
+  document.getElementById('co-meta').textContent=
+    [ticker,d._sector,d._exchange].filter(Boolean).join(' · ')+
+    '  ·  Finnhub  ·  '+
+    new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
 
   showEls(['tabs','stats','gauge','chart-wrap','rpills','foot']);
   hideEls(['empty']);
 
-  const series = filtered();
-  if (!series.length) { setMsg('No '+MLABELS[metric]+' data available for '+ticker, 'err'); return; }
-  setMsg('', '');
+  const series=filtered();
+  if(!series.length){
+    setMsg('No '+lbl+' history for '+ticker,'err');
+    // Show a placeholder chart area
+    return;
+  }
+  setMsg('','');
 
-  const vals    = series.map(s => s.value);
-  const current = vals[vals.length-1];
-  const mean    = vals.reduce((a,b)=>a+b,0) / vals.length;
-  const min     = Math.min(...vals);
-  const max     = Math.max(...vals);
-  const vsMean  = ((current-mean)/mean)*100;
-  const pct     = Math.max(0, Math.min(100, ((current-min)/(max-min))*100));
-  const pctile  = (vals.filter(v=>v<=current).length / vals.length)*100;
+  const vals=series.map(s=>s.value);
+  const current=vals[vals.length-1];
+  const mean=vals.reduce((a,b)=>a+b,0)/vals.length;
+  const min=Math.min(...vals);
+  const max=Math.max(...vals);
+  const vsMean=((current-mean)/mean)*100;
+  const pct=Math.max(0,Math.min(100,((current-min)/(max-min))*100));
+  const pctile=(vals.filter(v=>v<=current).length/vals.length)*100;
 
-  document.getElementById('s-cur').textContent  = current.toFixed(1)+'x';
-  document.getElementById('s-mean').textContent = mean.toFixed(1)+'x';
-  document.getElementById('s-min').textContent  = min.toFixed(1)+'x';
-  document.getElementById('s-max').textContent  = max.toFixed(1)+'x';
-  const vsEl = document.getElementById('s-vs');
-  vsEl.textContent = (vsMean>=0?'+':'')+vsMean.toFixed(1)+'%';
-  vsEl.style.color = vsMean>20?'var(--neg)':vsMean<-20?'var(--pos)':'var(--text)';
+  document.getElementById('s-cur').textContent=current.toFixed(1)+'x';
+  document.getElementById('s-mean').textContent=mean.toFixed(1)+'x';
+  document.getElementById('s-min').textContent=min.toFixed(1)+'x';
+  document.getElementById('s-max').textContent=max.toFixed(1)+'x';
+  const vsEl=document.getElementById('s-vs');
+  vsEl.textContent=(vsMean>=0?'+':'')+vsMean.toFixed(1)+'%';
+  vsEl.style.color=vsMean>20?'var(--neg)':vsMean<-20?'var(--pos)':'var(--text)';
 
-  document.getElementById('g-fill').style.width = pct+'%';
-  document.getElementById('g-mark').style.left  = pct+'%';
-  document.getElementById('g-note').innerHTML   =
+  document.getElementById('g-fill').style.width=pct+'%';
+  document.getElementById('g-mark').style.left=pct+'%';
+  const rangeLabel=years>=99?'full history':`${years}-year range`;
+  document.getElementById('g-note').innerHTML=
     `Current <em>${current.toFixed(1)}x</em> is at the `+
-    `<em>${pctile.toFixed(0)}th percentile</em> of its available history `+
+    `<em>${pctile.toFixed(0)}th percentile</em> of its ${rangeLabel} `+
     `(${min.toFixed(1)}x &ndash; ${max.toFixed(1)}x)`;
 
-  drawChart(series, mean, min, max);
+  drawChart(series,mean,min,max,lbl);
 }
 
-// ─── Chart ─────────────────────────────────────────────────────────────────
-function drawChart(series, mean, min, max) {
-  const labels = series.map(d => d.date.slice(0,4));
-  const vals   = series.map(d => d.value);
-  const ctx    = document.getElementById('vc').getContext('2d');
-  if (chartInst) { chartInst.destroy(); chartInst=null; }
+// ─── Chart ────────────────────────────────────────────────────────────────
+function drawChart(series,mean,min,max,lbl){
+  const labels=series.map(d=>d.date.slice(0,4));
+  const vals=series.map(d=>d.value);
+  const ctx=document.getElementById('vc').getContext('2d');
+  if(chartInst){chartInst.destroy();chartInst=null;}
 
-  const grad = ctx.createLinearGradient(0,0,0,380);
+  const grad=ctx.createLinearGradient(0,0,0,380);
   grad.addColorStop(0,'rgba(74,127,165,.22)');
   grad.addColorStop(1,'rgba(74,127,165,.00)');
 
-  chartInst = new Chart(ctx, {
-    type: 'line',
-    data: {
+  chartInst=new Chart(ctx,{
+    type:'line',
+    data:{
       labels,
-      datasets: [
-        { label: MLABELS[metric], data: vals,
-          borderColor:'#4A7FA5', borderWidth:2,
-          backgroundColor:grad, fill:true, tension:.3,
-          pointRadius:3, pointBackgroundColor:'#4A7FA5',
-          pointHoverRadius:6 },
-        { label:'Mean '+mean.toFixed(1)+'x', data:vals.map(()=>mean),
-          borderColor:'#B8974A', borderWidth:1.5, borderDash:[6,4],
-          backgroundColor:'transparent', fill:false, tension:0,
-          pointRadius:0, pointHoverRadius:0 }
+      datasets:[
+        {label:lbl,data:vals,
+         borderColor:'#4A7FA5',borderWidth:2,
+         backgroundColor:grad,fill:true,tension:.3,
+         pointRadius:3,pointBackgroundColor:'#4A7FA5',pointHoverRadius:6},
+        {label:'Mean '+mean.toFixed(1)+'x',data:vals.map(()=>mean),
+         borderColor:'#B8974A',borderWidth:1.5,borderDash:[6,4],
+         backgroundColor:'transparent',fill:false,tension:0,
+         pointRadius:0,pointHoverRadius:0}
       ]
     },
-    options: {
-      responsive:true, maintainAspectRatio:false,
-      interaction:{ mode:'index', intersect:false },
-      animation:{ duration:600, easing:'easeInOutQuart' },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      animation:{duration:600,easing:'easeInOutQuart'},
       plugins:{
-        legend:{ display:true, position:'top', align:'end',
-          labels:{ color:'#6B7685', font:{family:"'IBM Plex Mono'",size:10},
-                   boxWidth:24, boxHeight:1, padding:16 }},
+        legend:{display:true,position:'top',align:'end',
+          labels:{color:'#6B7685',font:{family:"'IBM Plex Mono'",size:10},
+                  boxWidth:24,boxHeight:1,padding:16}},
         tooltip:{
-          backgroundColor:'#1C2128', borderColor:'#2A3140', borderWidth:1,
-          titleColor:'#6B7685', bodyColor:'#E8E8E6',
+          backgroundColor:'#1C2128',borderColor:'#2A3140',borderWidth:1,
+          titleColor:'#6B7685',bodyColor:'#E8E8E6',
           titleFont:{family:"'IBM Plex Mono'",size:10},
-          bodyFont:{family:"'IBM Plex Mono'",size:12}, padding:12,
+          bodyFont:{family:"'IBM Plex Mono'",size:12},padding:12,
           callbacks:{
-            title: items => series[items[0].dataIndex]?.date || items[0].label,
-            label: item  => item.datasetIndex===1
-              ? '  Mean: '+item.raw.toFixed(2)+'x'
-              : '  '+MLABELS[metric]+': '+item.raw.toFixed(2)+'x'
+            title:items=>series[items[0].dataIndex]?.date||items[0].label,
+            label:item=>item.datasetIndex===1
+              ?'  Mean: '+item.raw.toFixed(2)+'x'
+              :'  '+lbl+': '+item.raw.toFixed(2)+'x'
           }},
-        annotation:{ annotations:{
-          minL:{ type:'line', yMin:min, yMax:min,
-            borderColor:'rgba(76,175,130,.3)', borderWidth:1, borderDash:[3,5],
-            label:{display:true, content:'Min '+min.toFixed(1)+'x', position:'start',
-              color:'rgba(76,175,130,.6)', font:{family:"'IBM Plex Mono'",size:9},
-              backgroundColor:'transparent', padding:0}},
-          maxL:{ type:'line', yMin:max, yMax:max,
-            borderColor:'rgba(192,86,74,.3)', borderWidth:1, borderDash:[3,5],
-            label:{display:true, content:'Max '+max.toFixed(1)+'x', position:'start',
-              color:'rgba(192,86,74,.6)', font:{family:"'IBM Plex Mono'",size:9},
-              backgroundColor:'transparent', padding:0}}
+        annotation:{annotations:{
+          minL:{type:'line',yMin:min,yMax:min,
+            borderColor:'rgba(76,175,130,.3)',borderWidth:1,borderDash:[3,5],
+            label:{display:true,content:'Min '+min.toFixed(1)+'x',position:'start',
+              color:'rgba(76,175,130,.6)',font:{family:"'IBM Plex Mono'",size:9},
+              backgroundColor:'transparent',padding:0}},
+          maxL:{type:'line',yMin:max,yMax:max,
+            borderColor:'rgba(192,86,74,.3)',borderWidth:1,borderDash:[3,5],
+            label:{display:true,content:'Max '+max.toFixed(1)+'x',position:'start',
+              color:'rgba(192,86,74,.6)',font:{family:"'IBM Plex Mono'",size:9},
+              backgroundColor:'transparent',padding:0}}
         }}
       },
       scales:{
-        x:{ grid:{color:'rgba(42,49,64,.6)',drawBorder:false},
-            ticks:{color:'#6B7685', font:{family:"'IBM Plex Mono'",size:9},
-                   maxTicksLimit:12, maxRotation:0, callback:(v,i)=>labels[i]}},
-        y:{ position:'right', grid:{color:'rgba(42,49,64,.6)',drawBorder:false},
-            ticks:{color:'#6B7685', font:{family:"'IBM Plex Mono'",size:9},
-                   callback:v=>v.toFixed(1)+'x'}}
+        x:{grid:{color:'rgba(42,49,64,.6)',drawBorder:false},
+           ticks:{color:'#6B7685',font:{family:"'IBM Plex Mono'",size:9},
+                  maxTicksLimit:14,maxRotation:0,callback:(v,i)=>labels[i]}},
+        y:{position:'right',grid:{color:'rgba(42,49,64,.6)',drawBorder:false},
+           ticks:{color:'#6B7685',font:{family:"'IBM Plex Mono'",size:9},
+                  callback:v=>v.toFixed(1)+'x'}}
       }
     }
   });
 }
 
-// ─── Tabs ──────────────────────────────────────────────────────────────────
-document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => {
+// ─── Tabs + Range ─────────────────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); metric=b.dataset.m; if(ticker) render();
+  b.classList.add('on');metric=b.dataset.m;if(ticker)render();
 }));
 
-// ─── Range pills ───────────────────────────────────────────────────────────
-document.querySelectorAll('.rp').forEach(b => b.addEventListener('click', () => {
+document.querySelectorAll('.rp').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.rp').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); years=parseInt(b.dataset.y); if(ticker) render();
+  b.classList.add('on');years=parseInt(b.dataset.y);if(ticker)render();
 }));
 
-// ─── Settings ──────────────────────────────────────────────────────────────
-const settingsEl = document.getElementById('settings');
-document.getElementById('gear').addEventListener('click', () => {
+// ─── Settings ─────────────────────────────────────────────────────────────
+const settingsEl=document.getElementById('settings');
+document.getElementById('gear').addEventListener('click',()=>{
   settingsEl.classList.toggle('on');
-  const k=getKey(); if(k) document.getElementById('s-key').value=k;
+  const k=getKey();if(k)document.getElementById('s-key').value=k;
 });
-document.getElementById('s-close').addEventListener('click', () => settingsEl.classList.remove('on'));
+document.getElementById('s-close').addEventListener('click',()=>settingsEl.classList.remove('on'));
 
-document.getElementById('save-key').addEventListener('click', () => {
+document.getElementById('save-key').addEventListener('click',()=>{
   const k=document.getElementById('s-key').value.trim();
-  if(!k){ feedback('key-fb','Please enter a key.',false); return; }
-  localStorage.setItem('vd_av_key', k);
+  if(!k){feedback('key-fb','Please enter a key.',false);return;}
+  localStorage.setItem('vd_fh_key',k);
   feedback('key-fb','API key saved.',true);
 });
 
-document.getElementById('s-new').addEventListener('input', function() {
-  const v=this.value; let s=0;
-  if(v.length>=8)s++; if(v.length>=12)s++;
-  if(/[A-Z]/.test(v))s++; if(/[0-9]/.test(v))s++; if(/[^a-zA-Z0-9]/.test(v))s++;
+document.getElementById('s-new').addEventListener('input',function(){
+  const v=this.value;let s=0;
+  if(v.length>=8)s++;if(v.length>=12)s++;
+  if(/[A-Z]/.test(v))s++;if(/[0-9]/.test(v))s++;if(/[^a-zA-Z0-9]/.test(v))s++;
   const f=document.getElementById('pw-fill');
   f.style.width=(s/5*100)+'%';
   f.style.background=['#C0564A','#C0564A','#B8974A','#B8974A','#4CAF82'][Math.max(0,s-1)];
 });
 
-document.getElementById('save-pw').addEventListener('click', async () => {
+document.getElementById('save-pw').addEventListener('click',async()=>{
   const cur=document.getElementById('s-cur').value;
-  const nw =document.getElementById('s-new').value;
+  const nw=document.getElementById('s-new').value;
   const con=document.getElementById('s-con').value;
-  if(!cur||!nw||!con){ feedback('pw-fb','All fields required.',false); return; }
-  if(nw!==con)        { feedback('pw-fb','Passwords do not match.',false); return; }
-  if(nw.length<6)     { feedback('pw-fb','Minimum 6 characters.',false); return; }
-  if(await sha256(cur)!==getHash()){ feedback('pw-fb','Current password incorrect.',false); return; }
-  localStorage.setItem('vd_pw', await sha256(nw));
+  if(!cur||!nw||!con){feedback('pw-fb','All fields required.',false);return;}
+  if(nw!==con){feedback('pw-fb','Passwords do not match.',false);return;}
+  if(nw.length<6){feedback('pw-fb','Minimum 6 characters.',false);return;}
+  if(await sha256(cur)!==getHash()){feedback('pw-fb','Current password incorrect.',false);return;}
+  localStorage.setItem('vd_pw',await sha256(nw));
   ['s-cur','s-new','s-con'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('pw-fill').style.width='0';
   feedback('pw-fb','Password updated.',true);
 });
 
-document.getElementById('clear-cache').addEventListener('click', () => {
+document.getElementById('clear-cache').addEventListener('click',()=>{
   Object.keys(cache).forEach(k=>delete cache[k]);
   ticker=null;
   if(chartInst){chartInst.destroy();chartInst=null;}
