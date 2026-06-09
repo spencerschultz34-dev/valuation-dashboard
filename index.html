@@ -302,7 +302,7 @@ const cache={};
 // Finnhub basic financials series keys mapped to our metric IDs
 const METRIC_MAP={
   ps:  { key:'psTTM',        label:'P / Sales'   },
-  evs: { key:'evSalesTTM',   label:'EV / Sales'  },
+  evs: { key:'evRevenueTTM', label:'EV / Sales'  },
   pe:  { key:'peTTM',        label:'P / E'        },
   ev:  { key:'evEbitdaTTM',  label:'EV / EBITDA' },
   pfcf:{ key:'pfcfTTM',      label:'P / FCF'      },
@@ -385,11 +385,11 @@ async function buildHistory(tkr){
     }
   }
 
-  // EV/Sales: similar pattern using 'evSalesTTM'
-  let evsSeries = extractSeries('evSalesTTM', 'evSalesTTM', 500);
+  // EV/Sales: similar pattern using 'evRevenueTTM'
+  let evsSeries = extractSeries('evRevenueTTM', 'evRevenueTTM', 500);
   if(evsSeries.length === 0){
     const cur = metrics.metric || {};
-    const evsVal = cur.evSalesTTM || cur['evSalesTTM'];
+    const evsVal = cur.evRevenueTTM || cur['evRevenueTTM'];
     if(evsVal && evsVal > 0 && evsVal < 500){
       evsSeries = [{ date: new Date().toISOString().slice(0,10), value: +evsVal.toFixed(2) }];
     }
