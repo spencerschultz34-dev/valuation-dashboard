@@ -303,7 +303,7 @@ const METRIC_MAP={
   ps:  { key:'psTTM',        label:'P / Sales'   },
   pe:  { key:'peTTM',        label:'P / E'        },
   ev:  { key:'evEbitdaTTM',  label:'EV / EBITDA' },
-  pfcf:{ key:'pfcfShareTTM', label:'P / FCF'      },
+  pfcf:{ key:'pfcfTTM',      label:'P / FCF'      },
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────
@@ -352,35 +352,56 @@ async function buildHistory(tkr){
     fh(`stock/profile2?symbol=${tkr}`),
   ]);
 
-  // The 'series' object contains annual and quarterly historical series
-  const series = metrics.series || {};
-  const annual  = series.annual  || {};
+  // series.quarterly has the richest historical data for valuation metrics
+  // series.annual also exists but has fewer points
+  const series    = metrics.series    || {};
+  const quarterly = series.quarterly  || {};
+  const annual    = series.annual     || {};
 
   if(!profile||!profile.name) throw new Error(`Ticker "${tkr}" not found. Check the symbol.`);
 
-  // Helper: extract a named series into [{date, value}] sorted ascending
-  function extractSeries(key){
-    const raw=annual[key]||[];
-    return raw
-      .filter(pt=>pt.v!=null&&pt.v>0&&pt.v<2000)
-      .map(pt=>({date:pt.period,value:+pt.v.toFixed(2)}))
-      .sort((a,b)=>a.date.localeCompare(b.date));
+  // Helper: extract a named series from quarterly (fall back to annual)
+  // Finnhub quarterly valuation series keys: psTTM, peTTM, pfcfTTM
+  // Each point: { period: "YYYY-MM-DD", v: number }
+  function extractSeries(qKey, aKey, cap=500){
+    const src = (quarterly[qKey]||[]).length > 0 ? quarterly[qKey] : (annual[aKey||qKey]||[]);
+    return src
+      .filter(pt => pt.v != null && isFinite(pt.v) && pt.v > 0 && pt.v < cap)
+      .map(pt => ({ date: pt.period, value: +pt.v.toFixed(2) }))
+      .sort((a,b) => a.date.localeCompare(b.date));
+  }
+
+  // EV/EBITDA: Finnhub exposes this as 'evEbitdaTTM' in the quarterly series
+  // If not present, build a single current-point from the metric snapshot
+  let evSeries = extractSeries('evEbitdaTTM', 'evEbitdaTTM', 500);
+  if(evSeries.length === 0){
+    // Fall back to current metric snapshot value as a single point
+    const cur = metrics.metric || {};
+    const evVal = cur.evEbitdaTTM || cur['evEbitdaTTM'];
+    if(evVal && evVal > 0 && evVal < 500){
+      evSeries = [{ date: new Date().toISOString().slice(0,10), value: +evVal.toFixed(2) }];
+    }
   }
 
   const result={
-    ps:   extractSeries('psTTM'),
-    pe:   extractSeries('peTTM'),
-    ev:   extractSeries('evEbitdaTTM'),
-    pfcf: extractSeries('pfcfShareTTM'),
-    _name:    profile.name    ||tkr,
-    _sector:  profile.finnhubIndustry||'',
-    _exchange:profile.exchange||'',
-    _currency:profile.currency||'USD',
+    ps:   extractSeries('psTTM',   'psTTM'),
+    pe:   extractSeries('peTTM',   'peTTM'),
+    ev:   evSeries,
+    pfcf: extractSeries('pfcfTTM', 'pfcfTTM', 1000),
+    _name:    profile.name             || tkr,
+    _sector:  profile.finnhubIndustry  || '',
+    _exchange:profile.exchange         || '',
+    _currency:profile.currency         || 'USD',
+    _allKeys: Object.keys(quarterly).join(','), // debug aid
   };
 
-  // Validate we got at least one metric
-  const total=result.ps.length+result.pe.length+result.ev.length+result.pfcf.length;
-  if(total===0) throw new Error(`No historical valuation data found for "${tkr}".`);
+  // Validate we got at least one metric with real history
+  const total = result.ps.length + result.pe.length + result.ev.length + result.pfcf.length;
+  if(total === 0) throw new Error(
+    `No historical valuation data returned for "${tkr}". `+
+    `This ticker may not be covered on Finnhub's free tier, or the series keys have changed. `+
+    `Available series: ${result._allKeys||'none'}`
+  );
 
   return result;
 }
